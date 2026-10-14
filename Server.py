@@ -16,10 +16,10 @@ def index():
 def piada():
     return random.choice(piadas)
 
-@app.route("/piada/<int:id>")
+@app.route("/piada/<int:id>", methods=['GET'])
 def piada_especifica(id):
     if id < 1 or id > len(piadas):
         return "Esta página NÃO existe pequiníssimo criolo."
-    return piada[id - 1]
+    return piadas[id - 1]
 
 app.run(host="0.0.0.0", port=8080)
