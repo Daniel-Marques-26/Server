@@ -52,7 +52,7 @@ def index():
 
 @app.route("/piada")
 def piada():
-    return jsonify(random.choice(piadas["content"]))
+    return jsonify(random.choice(piadas)["content"])
 
 @app.route("/piada/<int:id>", methods=['GET'])
 def piada_especifica(id):
@@ -62,7 +62,7 @@ def piada_especifica(id):
 
 @app.route("/brainrot")
 def brainrot():
-    return jsonify(random.choice(brainrots["content"]))
+    return jsonify(random.choice(brainrots)["content"])
 
 @app.route("/brainrot/<int:id>", methods=['GET'])
 def brainrot_especifico(id):
