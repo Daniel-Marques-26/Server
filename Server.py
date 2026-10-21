@@ -56,6 +56,14 @@ visitas_dict = {
     "visitas_br": visitas_brainrot
 }
 
+def upd_visitas():
+    global visitas_dict
+    visitas_dict = {
+        "visitas": visitas,
+        "visitas_p": visitas_piadas,
+        "visitas_br": visitas_brainrot
+    }
+
 @app.route("/")
 def index():
     global visitas
