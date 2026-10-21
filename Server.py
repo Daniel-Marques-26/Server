@@ -7,6 +7,8 @@ CORS(app)
 
 a = "Daniel"
 
+visitas
+
 page_not_found_text = "Esta página NÃO existe pequiníssimo criolo."
 
 piadas = [{
@@ -48,7 +50,8 @@ brainrots = [{
 
 @app.route("/")
 def index():
-    return 'Entra na página de piadas.'
+    visitas += 1
+    return jsonify({"visitas": visitas})
 
 @app.route("/piada")
 def piada():
