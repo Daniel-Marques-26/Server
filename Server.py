@@ -50,7 +50,8 @@ brainrots = [{
 
 @app.route("/")
 def index():
-    visitas = visitas + 1
+    global visitas
+    visitas += 1
     return jsonify({"visitas": visitas})
 
 @app.route("/piada")
