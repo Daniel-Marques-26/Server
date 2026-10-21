@@ -8,6 +8,8 @@ CORS(app)
 a = "Daniel"
 
 visitas = 0
+visitas_piadas = 0
+visitas_brainrot = 0
 
 page_not_found_text = "Esta página NÃO existe pequiníssimo criolo."
 
@@ -48,28 +50,42 @@ brainrots = [{
     "nome": a
 }]
 
+visitas_dict = {
+    "visitas": visitas,
+    "visitas_p": visitas_piadas,
+    "visitas_br": visitas_brainrot
+}
+
 @app.route("/")
 def index():
     global visitas
     visitas += 1
-    return jsonify({"visitas": visitas})
+    return jsonify(visitas_dict)
 
 @app.route("/piada")
 def piada():
+    global visitas_piadas
+    visitas_piadas += 1
     return jsonify(random.choice(piadas))
 
 @app.route("/piada/<int:id>", methods=['GET'])
 def piada_especifica(id):
+    global visitas_piadas
+    visitas_piadas += 1
     if id < 1 or id > len(piadas):
         return page_not_found_text
     return jsonify(piadas[id - 1])
 
 @app.route("/brainrot")
 def brainrot():
+    global visitas_brainrot
+    visitas_brainrot += 1
     return jsonify(random.choice(brainrots))
 
 @app.route("/brainrot/<int:id>", methods=['GET'])
 def brainrot_especifico(id):
+    global visitas_brainrot
+    visitas_brainrot += 1
     if id < 1 or id > len(brainrots):
         return page_not_found_text
     return jsonify(brainrots[id - 1])
