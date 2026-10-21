@@ -7,7 +7,7 @@ CORS(app)
 
 a = "Daniel"
 
-visitas
+visitas = 0
 
 page_not_found_text = "Esta página NÃO existe pequiníssimo criolo."
 
