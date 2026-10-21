@@ -22,4 +22,4 @@ def piada_especifica(id):
         return "Esta página NÃO existe pequiníssimo criolo."
     return piadas[id - 1]
 
-app.run(host="0.0.0.0", port=8080)
+app.run(host="0.0.0.0", port=8081)
