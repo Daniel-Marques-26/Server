@@ -56,7 +56,7 @@ visitas_dict = {
     "visitas_br": visitas_brainrot
 }
 
-def upd_visitas():
+def upd_vst():
     global visitas_dict
     visitas_dict = {
         "visitas": visitas,
@@ -68,6 +68,7 @@ def upd_visitas():
 def index():
     global visitas
     visitas += 1
+    upd_vst()
     return jsonify(visitas_dict)
 
 @app.route("/piada")
@@ -80,6 +81,7 @@ def piada():
 def piada_especifica(id):
     global visitas_piadas
     visitas_piadas += 1
+
     if id < 1 or id > len(piadas):
         return page_not_found_text
     return jsonify(piadas[id - 1])
